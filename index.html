@@ -1,5 +1,13 @@
 <html>
 <head>
+<style type="text/css">
+#camera_video {
+  position: absolute; z-index: 10;
+}
+#camera_frame {
+  position: absolute; z-index: 20;
+}
+</style>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -8,8 +16,8 @@ $(function() {
   const constraints = {
     audio: false,
     video: {
-      width: 300,
-      height: 300,
+      width: 640,
+      height: 480,
       facingMode: 'user'
     }
   };
@@ -39,8 +47,9 @@ $(function() {
 
 <body>
   <div>
-    <video id="camera_video" width="300" height="300"></video>
-    <canvas id="camera_canvas" width="300" height="300"></canvas>
+    <video id="camera_video" width="640" height="480"></video>
+    <canvas id="camera_frame" width="640" height="480"></canvas>
+    <canvas id="camera_canvas" width="640" height="480"></canvas>
   </div>
   <div><button id="shutter">撮影</button></div>
 </body>
