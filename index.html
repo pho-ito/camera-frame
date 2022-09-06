@@ -24,6 +24,16 @@ $(function() {
     console.log(err.name + ': ' + err.message);
     alert(err.message);
   });
+
+  $('#shutter').on('click', function (event) {
+    const ctx = canvas.getContext('2d');
+    video.pause();
+    setTimeout(() => {
+      video.play();
+    }, 500);
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  })
+  });
 });
 </script>
 </head>
@@ -33,5 +43,6 @@ $(function() {
     <video id="camera_video" width="300" height="300"></video>
     <canvas id="camera_canvas" width="300" height="300"></canvas>
   </div>
+  <div><button id="shuttoer">撮影</button></div>
 </body>
 </html>
