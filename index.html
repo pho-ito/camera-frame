@@ -19,14 +19,14 @@ $(function() {
   var image = new Image();
   image.src = 'frame.png';
   image.onload = () => {
-    ctx.drawImage(image, 0, 0, 640, 480);
+    ctx.drawImage(image, 0, 0, 300, 300);
   }
 
   const constraints = {
     audio: false,
     video: {
-      width: 640,
-      height: 480,
+      width: 300,
+      height: 300,
       facingMode: 'user'
     }
   };
@@ -48,7 +48,8 @@ $(function() {
     setTimeout(() => {
       video.play();
     }, 500);
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    //ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(video, 0, 0);
   });
 });
 </script>
@@ -56,9 +57,9 @@ $(function() {
 
 <body>
   <div>
-    <video id="camera_video" width="640" height="480"></video>
-    <canvas id="camera_frame" width="640" height="480"></canvas>
-    <canvas id="camera_canvas" width="640" height="480"></canvas>
+    <video id="camera_video" width="300" height="300"></video>
+    <canvas id="camera_frame" width="300" height="300"></canvas>
+    <canvas id="camera_canvas" width="300" height="300"></canvas>
   </div>
   <div><button id="shutter">撮影</button></div>
 </body>
