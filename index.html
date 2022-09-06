@@ -3,8 +3,8 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 $(function() {
-  var video = document.querySelector('#camera_video');
-  var canvas = document.querySelector('#camera_canvas');
+  var video = $('#camera_video')[0];
+  var canvas = $('#camera_canvas')[0];
   const constraints = {
     audio: false,
     video: {
@@ -14,16 +14,16 @@ $(function() {
     }
   };
   navigator.mediaDevices.getUserMedia(constraints)
-    .then((stream) => {
-      video.srcObject = stream;
-      video.onloadedmetadata = (e) => {
-        video.play();
-      };
-    })
-    .catch ((err) => {
-      console.log(err.name + ': ' + err.message);
-      alert(err.message);
-    })
+  .then((stream) => {
+    video.srcObject = stream;
+    video.onloadedmetadata = (e) => {
+      video.play();
+    };
+  })
+  .catch ((err) => {
+    console.log(err.name + ': ' + err.message);
+    alert(err.message);
+  });
 });
 </script>
 </head>
