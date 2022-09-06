@@ -3,8 +3,8 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 $(function() {
-  const video = $('#camera_video');
-  const canvas = $('#camera_canvas');
+  const video = $('#camera_video')[0];
+  const canvas = $('#camera_canvas')[0];
   const constraints = {
     audio: false,
     vido: {
