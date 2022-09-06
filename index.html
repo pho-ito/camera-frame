@@ -16,7 +16,7 @@ $(function() {
   navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {
       video.srcObject = stream;
-      vide.onloadedmetadata = (e) => {
+      video.onloadedmetadata = (e) => {
         video.play();
       };
     })
