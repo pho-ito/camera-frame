@@ -1,1 +1,36 @@
-<h1>sample</h1>
+<html>
+<head>
+<script src="code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  const video = $('#camera_video');
+  const canvas = $('#camera_canvas');
+  const constraints = {
+    audio: false,
+    vido: {
+      width: 300,
+      height: 300,
+      facingMode: 'user'
+    }
+  };
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then((stream) => {
+      video.srcObject = stream;
+      vide.onloadedmetadata = (e) => {
+        video.play();
+      };
+    })
+    .catch ((err) => {
+      console.log(err.name + ': ' + err.message);
+    })
+});
+</script>
+</head>
+
+<body>
+  <div>
+    <video id="camera_video" width="300" height="300"></video>
+    <canvas id="camera_canvas" width="300" height="300"></canvas>
+  </div>
+</body>
+</html>
